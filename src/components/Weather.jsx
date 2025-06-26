@@ -69,30 +69,31 @@ const Weather = () => {
     }, []);
 
   return (
-    <div className='weather'>
-      <div className="search-bar">
-        <input ref={inputRef} type="text" placeholder='Search' />
-        <img src={search_icon} alt="" onClick={()=>search(inputRef.current.value)}/>
-      </div>  
-      {weatherData?<>
-      <img src={weatherData.icon} alt="" className='weather-icon'/> 
-      <p className='temp'>{weatherData.temp}°C</p>           
-      <p className='location'>{weatherData.city}</p>
-      <div className="weather-data">
-        <div className="col">
-          <img src={humidity_icon} alt="" />
-            <p>{weatherData.humidity}%</p>
-            <span>Humidity</span>
+    // <div className="rain">
+      <div className='weather'>
+        <div className="search-bar">
+          <input ref={inputRef} type="text" placeholder='Search' />
+          <img src={search_icon} alt="" onClick={()=>search(inputRef.current.value)}/>
         </div>
-        <div className="col">
-          <img src={wind_icon} alt="" />
-            <p>{weatherData.windspeed} Km/h</p>
-            <span>Wind Speed</span>
+        {weatherData?<>
+        <img src={weatherData.icon} alt="" className='weather-icon'/> 
+        <p className='temp'>{weatherData.temp}°C</p>           
+        <p className='location'>{weatherData.city}</p>
+        <div className="weather-data">
+          <div className="col">
+            <img src={humidity_icon} alt="" />
+              <p>{weatherData.humidity}%</p>
+              <span>Humidity</span>
+          </div>
+          <div className="col">
+            <img src={wind_icon} alt="" />
+              <p>{weatherData.windspeed} Km/h</p>
+              <span>Wind Speed</span>
+          </div>
         </div>
-      </div>
-      </>:<></>}
-                                                                   
-    </div>
+        </>:<></>}
+      </div>                                                         
+    // </div>
   )
 }
 
