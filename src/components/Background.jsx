@@ -3,7 +3,11 @@ import './Background.css'
 
 const Background = () => {
   return (
-    <div className='background'>
+    <div className='bg-color'>
+      <div className="clouds"></div>
+      <div className="clouds"></div>
+      <div className="rain"></div>
+      <div className="sun"></div>
     </div>
   )
 }
