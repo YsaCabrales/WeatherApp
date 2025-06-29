@@ -79,6 +79,7 @@ const Weather = ({ updateBackground }) => {
 
       const icon = allIcons[data.weather[0].icon] || clear_icon;
       setWeatherData({
+        specificWeather: data.weather[0].main,
         humidity: data.main.humidity,
         windspeed: data.wind.speed,
         temp: Math.floor(data.main.temp),
@@ -108,6 +109,7 @@ const Weather = ({ updateBackground }) => {
        </div>
        {weatherData?<>
        <img src={weatherData.icon} alt="" className='weather-icon'/> 
+       <p className="description">{weatherData.specificWeather}</p>
        <p className='temp'>{weatherData.temp}°C</p>           
        <p className='location'>{weatherData.city}</p>
        <div className="weather-data">
