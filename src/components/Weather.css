@@ -67,7 +67,7 @@
     color: #fff;
     display: flex;
     justify-content: space-between;
-    .col{
+     .col{
         gap: 12px;
         font-size: 22px;
         display: flex;

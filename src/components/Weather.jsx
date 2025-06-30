@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Weather.css'
-import search_icon from '../assets/search.png'
 import wind_icon from '../assets/wind.png'
 import humidity_icon from '../assets/humidity.png'
+
+import CitySearch from './CitySearch.jsx';
 
 const Weather = ({ updateBackground }) => {
 
@@ -84,7 +85,9 @@ const Weather = ({ updateBackground }) => {
         windspeed: data.wind.speed,
         temp: Math.floor(data.main.temp),
         city: data.name,
+        country: data.sys.country,
         icon: icon
+
       });
 
       handleWeatherChange(data.weather[0].icon);
@@ -104,14 +107,14 @@ const Weather = ({ updateBackground }) => {
   return (
      <div className='weather '>
        <div className="search-bar">
-         <input ref={inputRef} type="text" placeholder='Search' />
-         <img src={search_icon} alt="" onClick={()=>search(inputRef.current.value)}/>
+         <CitySearch ref={inputRef} onSearch={search} onSelect={search}/>
+         {/* <img src={search_icon} alt="" onClick={()=>search()}/> */}
        </div>
        {weatherData?<>
        <img src={weatherData.icon} alt="" className='weather-icon'/> 
        <p className="description">{weatherData.specificWeather}</p>
        <p className='temp'>{weatherData.temp}°C</p>           
-       <p className='location'>{weatherData.city}</p>
+       <p className='location'>{weatherData.city}, {weatherData.country}</p>
        <div className="weather-data">
          <div className="col">
            <img src={humidity_icon} alt="" />
